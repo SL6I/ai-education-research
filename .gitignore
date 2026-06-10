@@ -1,6 +1,11 @@
-# Word temp files
+# Word files
+*.docx
 ~$*.docx
 *.tmp
+
+# Other project files (keep only index.html on GitHub)
+all_imformation.md
+example-project.html
 
 # OS files
 Thumbs.db
