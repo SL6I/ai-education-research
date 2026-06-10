@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الذكاء الاصطناعي في التعليم | مشروع بحثي</title>
+<meta name="description" content="كيف يُغيّر الذكاء الاصطناعي والتعلم العميق قطاع التعليم — من المعلمين الأذكياء إلى تخصيص المسارات وتقييم الإجابات المفتوحة">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a2744;
+    --ink-deep: #0e1a30;
+    --paper: #FAFBFD;
+    --paper-warm: #F0F2F8;
+    --accent: #2563EB;
+    --accent-deep: #1D4ED8;
+    --gold: #D97706;
+    --gold-deep: #B45309;
+    --teal: #0D9488;
+    --muted: #64748B;
+    --line: rgba(26, 39, 68, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background: var(--paper);
+    color: var(--ink-deep);
+    font-size: 17px;
+    line-height: 1.85;
+    direction: rtl;
+    overflow-x: hidden;
+  }
+
+  .num, .yr { font-family: 'Playfair Display', serif; }
+  .en { font-family: 'Playfair Display', serif; font-style: italic; }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(13, 148, 136, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============ HERO ============ */
+  .hero {
+    min-height: 95vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 48px 32px 64px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(37, 99, 235, 0.02) 0%, transparent 60%);
+  }
+
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  .hero-top .badge {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-center {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    color: var(--accent-deep);
+    font-size: 22px;
+    margin-bottom: 24px;
+    letter-spacing: 0.02em;
+  }
+
+  .hero h1 {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 900;
+    font-size: clamp(38px, 6vw, 72px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 .accent {
+    color: var(--accent);
+    font-style: normal;
+    position: relative;
+  }
+
+  .hero h1 .accent::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+    left: 0;
+    height: 8px;
+    background: rgba(37, 99, 235, 0.15);
+    z-index: -1;
+  }
+
+  .hero-subtitle {
+    font-size: 22px;
+    color: var(--muted);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .hero-supervisor {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 15px;
+    color: var(--accent-deep);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  /* Glossary term tooltip */
+  .term {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+    border-bottom: 1.5px dotted var(--accent);
+    padding-bottom: 1px;
+    transition: color 0.2s;
+  }
+
+  .term:hover,
+  .term:focus { color: var(--gold); outline: none; }
+
+  .term-tip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 50%;
+    transform: translateX(50%) translateY(8px);
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 12px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    width: max-content;
+    max-width: 280px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    z-index: 200;
+    box-shadow: 0 12px 32px rgba(14, 26, 48, 0.25);
+    letter-spacing: 0;
+  }
+
+  .term-tip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    transform: translateX(50%);
+    border: 6px solid transparent;
+    border-top-color: var(--ink-deep);
+  }
+
+  .term-tip em {
+    color: var(--gold);
+    font-style: italic;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .term:hover .term-tip,
+  .term:focus .term-tip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(50%) translateY(0);
+  }
+
+  .hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .stat-num .unit {
+    font-size: 22px;
+    color: var(--accent-deep);
+    margin-right: 6px;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+  }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(250, 251, 253, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid var(--line);
+    padding: 16px 0;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .nav-logo {
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 15px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .nav-links a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    position: relative;
+    padding-bottom: 4px;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ============ SECTIONS ============ */
+  section {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  .section-eyebrow {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent-deep);
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .section-eyebrow::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .section-eyebrow .ch {
+    font-family: 'Playfair Display', serif;
+    color: var(--accent);
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 24px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  .section-intro {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 800px;
+    line-height: 1.8;
+    margin-bottom: 64px;
+  }
+
+  /* ============ INTRO SECTION ============ */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .pull-quote {
+    background: var(--paper-warm);
+    border-right: 4px solid var(--accent);
+    padding: 32px 36px;
+    margin: 24px 0;
+    font-family: 'Amiri', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    color: var(--ink);
+    font-style: italic;
+    position: relative;
+  }
+
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    right: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 80px;
+    color: var(--accent);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  .pull-quote cite {
+    display: block;
+    margin-top: 16px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ============ Predictive vs Generative ============ */
+  .comparison-wrap {
+    margin-top: 64px;
+  }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .comparison-col {
+    padding: 40px 36px;
+    position: relative;
+  }
+
+  .comparison-col.predictive {
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+  }
+
+  .comparison-col.generative {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .comparison-col .col-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  .comparison-col.predictive .col-badge {
+    background: var(--teal);
+    color: var(--paper);
+  }
+
+  .comparison-col.generative .col-badge {
+    background: var(--gold);
+    color: var(--paper);
+  }
+
+  .comparison-col h4 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .comparison-col p {
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .comparison-col.generative p {
+    color: rgba(250, 251, 253, 0.8);
+  }
+
+  .comparison-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .comparison-col ul li {
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .comparison-col.generative ul li {
+    border-color: rgba(250, 251, 253, 0.1);
+    color: rgba(250, 251, 253, 0.9);
+  }
+
+  .comparison-col ul li::before {
+    content: '→';
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .comparison-col.generative ul li::before {
+    color: var(--gold);
+  }
+
+  /* ============ MODELS / CARDS ============ */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .model-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 36px 32px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+  }
+
+  .model-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 100%;
+    background: var(--ink);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 0;
+  }
+
+  .model-card:hover::before { width: 100%; }
+  .model-card:hover { color: var(--paper); border-color: var(--ink); }
+  .model-card:hover .model-num,
+  .model-card:hover .model-name,
+  .model-card:hover .model-desc,
+  .model-card:hover .model-eg { color: var(--paper); }
+  .model-card:hover .model-eg { border-color: rgba(250, 251, 253, 0.2); }
+  .model-card:hover .model-tag { background: var(--accent); color: var(--paper); }
+
+  .model-card > * { position: relative; z-index: 1; }
+
+  .model-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--accent-deep);
+    margin-bottom: 16px;
+    transition: color 0.3s;
+  }
+
+  .model-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.2;
+    transition: color 0.3s;
+  }
+
+  .model-name-ar {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .model-tag {
+    display: inline-block;
+    background: var(--paper-warm);
+    color: var(--ink);
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    transition: all 0.3s;
+  }
+
+  .model-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+    margin-bottom: 20px;
+    transition: color 0.3s;
+  }
+
+  .model-eg {
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+    transition: all 0.3s;
+  }
+
+  .model-eg strong { color: var(--accent); font-weight: 700; }
+
+  /* ============ COMPANIES ============ */
+  .companies {
+    background: var(--paper-warm);
+    margin: 0 -32px;
+    padding: 100px 32px;
+  }
+
+  .companies .container { max-width: 1200px; }
+
+  .company-row {
+    display: grid;
+    grid-template-columns: 100px 200px 1fr 140px;
+    gap: 32px;
+    align-items: center;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--line);
+    transition: padding 0.3s;
+  }
+
+  .company-row:hover {
+    padding-right: 16px;
+  }
+
+  .company-row:last-child { border-bottom: none; }
+
+  .company-rank {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  .company-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+
+  .company-origin {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .company-desc {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+  }
+
+  .company-desc strong { color: var(--accent); font-weight: 700; }
+
+  .company-stat {
+    text-align: left;
+    padding-right: 24px;
+    border-right: 2px solid var(--accent);
+  }
+
+  .company-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .company-stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+    line-height: 1.3;
+  }
+
+  /* ============ TIMELINE ============ */
+  .timeline-wrap {
+    position: relative;
+    margin-top: 80px;
+  }
+
+  .tl-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 60px;
+    border: 1px solid var(--ink);
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .tl-btn {
+    background: var(--paper);
+    color: var(--ink);
+    border: none;
+    padding: 12px 28px;
+    font-family: 'Tajawal', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .tl-btn.active {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .tl-btn:not(.active):hover { background: var(--paper-warm); }
+
+  .timeline {
+    position: relative;
+    padding: 20px 0;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    width: 2px;
+    background: var(--line);
+    transform: translateX(50%);
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.6s forwards;
+  }
+
+  .tl-item:nth-child(1) { animation-delay: 0.1s; }
+  .tl-item:nth-child(2) { animation-delay: 0.2s; }
+  .tl-item:nth-child(3) { animation-delay: 0.3s; }
+  .tl-item:nth-child(4) { animation-delay: 0.4s; }
+  .tl-item:nth-child(5) { animation-delay: 0.5s; }
+  .tl-item:nth-child(6) { animation-delay: 0.6s; }
+  .tl-item:nth-child(7) { animation-delay: 0.7s; }
+  .tl-item:nth-child(8) { animation-delay: 0.8s; }
+  .tl-item:nth-child(9) { animation-delay: 0.9s; }
+  .tl-item:nth-child(10) { animation-delay: 1.0s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .tl-year {
+    grid-column: 2;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 32px;
+    text-align: center;
+    color: var(--paper);
+    background: var(--ink);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+  }
+
+  .tl-year.future {
+    background: var(--paper);
+    color: var(--accent);
+    border: 2px dashed var(--accent);
+  }
+
+  .tl-year.global { background: var(--ink); }
+  .tl-year.saudi { background: var(--teal); }
+
+  .tl-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 24px 28px;
+    position: relative;
+  }
+
+  .tl-item.right .tl-card { grid-column: 1; }
+  .tl-item.left .tl-card { grid-column: 3; }
+
+  .tl-card::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .tl-item.right .tl-card::after { right: -16px; }
+  .tl-item.left .tl-card::after { left: -16px; }
+
+  .tl-card-flag {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+    padding: 3px 10px;
+    font-weight: 600;
+  }
+
+  .tl-card-flag.global { background: var(--ink); color: var(--paper); }
+  .tl-card-flag.saudi { background: var(--teal); color: var(--paper); }
+
+  .tl-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+
+  .tl-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .tl-card .tl-model {
+    margin-top: 12px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--accent-deep);
+  }
+
+  /* ============ FUTURE ============ */
+  .future-section {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0 -32px;
+    padding: 120px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .future-section::before {
+    content: '2030';
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 480px;
+    line-height: 1;
+    color: rgba(250, 251, 253, 0.03);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .future-section .container { position: relative; z-index: 1; }
+
+  .future-section .section-eyebrow { color: var(--gold); }
+  .future-section .section-eyebrow .ch { color: var(--gold); }
+  .future-section .section-eyebrow::after { background: rgba(250, 251, 253, 0.15); }
+  .future-section .section-title { color: var(--paper); }
+  .future-section .section-intro { color: rgba(250, 251, 253, 0.7); }
+
+  .future-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 60px;
+  }
+
+  .future-item {
+    border-top: 2px solid var(--gold);
+    padding-top: 24px;
+  }
+
+  .future-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    margin-bottom: 16px;
+    color: var(--paper);
+    line-height: 1.2;
+  }
+
+  .future-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(250, 251, 253, 0.8);
+  }
+
+  /* ============ CHALLENGES ============ */
+  .challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+  }
+
+  .challenge {
+    border-top: 4px solid var(--accent);
+    padding-top: 20px;
+  }
+
+  .challenge .ch-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--accent-deep);
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .challenge h4 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .challenge p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink-deep);
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    background: var(--ink-deep);
+    color: var(--paper);
+    padding: 60px 32px 40px;
+    margin-top: 0;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+
+  .footer-about h5,
+  .footer-col h5 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+
+  .footer-about p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(250, 251, 253, 0.7);
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer-col li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: rgba(250, 251, 253, 0.7);
+  }
+
+  .footer-col a {
+    color: rgba(250, 251, 253, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--gold); }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(250, 251, 253, 0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(250, 251, 253, 0.5);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 900px) {
+    .hero-bottom { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 32px; }
+    .models-grid { grid-template-columns: 1fr; }
+    .comparison-grid { grid-template-columns: 1fr; }
+    .company-row { grid-template-columns: 60px 1fr; gap: 16px; }
+    .company-desc, .company-stat { grid-column: 1 / -1; }
+    .company-stat { border-right: none; padding-right: 0; text-align: right; }
+    .timeline::before { right: 32px; }
+    .tl-item { grid-template-columns: 64px 1fr; }
+    .tl-year { grid-column: 1; width: 64px; height: 64px; font-size: 22px; }
+    .tl-item.right .tl-card,
+    .tl-item.left .tl-card { grid-column: 2; }
+    .tl-item.right .tl-card::after,
+    .tl-item.left .tl-card::after { right: -16px; left: auto; }
+    .future-grid, .challenges-grid { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .future-section::before { font-size: 240px; }
+  }
+
+  /* Accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1 class="sr-only">الذكاء الاصطناعي في قطاع التعليم — مشروع بحثي في مقرر Advanced Deep Learning</h1>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-top container" style="padding: 0;">
+    <span>Advanced Deep Learning · مشروع بحثي</span>
+    <span class="badge">AI4203</span>
+  </div>
+
+  <div class="hero-center">
+    <div class="hero-eyebrow">A research case study in</div>
+    <h1 aria-hidden="true">الذكاء الاصطناعي<br>في قطاع <span class="accent">التعليم</span></h1>
+    <p class="hero-subtitle">كيف تُوظّف المنصات التعليمية نماذج اللغة الكبيرة والتعلم العميق لبناء معلّمين أذكياء تكيّفيين — من <span class="en">Khanmigo</span> إلى التجارب السعودية في رؤية <span class="num">2030</span></p>
+    <p class="hero-supervisor">تحت إشراف د. أحمد الهندي · خبير الذكاء الاصطناعي</p>
+  </div>
+
+  <div class="hero-bottom container" style="padding: 0;">
+    <div class="stat">
+      <div class="stat-num"><span class="num">700K</span><span class="unit">طالب</span></div>
+      <div class="stat-label">يستخدمون <span class="en">Khanmigo</span> في <span class="num">2025</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">0.94</span><span class="unit">QWK</span></div>
+      <div class="stat-label">دقة تصحيح المقالات تلقائياً بنماذج <span class="en">Transformer</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">86</span><span class="unit">٪</span></div>
+      <div class="stat-label">من الطلاب يستخدمون أدوات AI في <span class="num">2025</span></div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span class="num">43M</span><span class="unit">مستخدم</span></div>
+      <div class="stat-label">على منصة <span class="en">Squirrel AI</span> الصينية</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="main-nav">
+  <div class="nav-inner">
+    <span class="nav-logo">AI × Education</span>
+    <ul class="nav-links">
+      <li><a href="#intro">المقدمة</a></li>
+      <li><a href="#models">النماذج</a></li>
+      <li><a href="#companies">الشركات</a></li>
+      <li><a href="#timeline">الخط الزمني</a></li>
+      <li><a href="#challenges">التحديات</a></li>
+      <li><a href="#future">المستقبل</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ INTRO ============ -->
+<section id="intro">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">1</span><span>المقدمة</span></div>
+    <h2 class="section-title">صناعة تُعيد تشكيل<br>كيف يتعلّم البشر</h2>
+    <p class="section-intro">التعليم لم يعد يقتصر على فصل دراسي ومعلّم واحد يخاطب عشرات الطلاب بنفس الأسلوب. الذكاء الاصطناعي يُحدث تحوّلاً جذرياً: معلّم ذكي لكل طالب، مسار تعلّم مُخصّص لكل مستوى، وتقييم فوري لكل إجابة — على مدار الساعة.</p>
+
+    <div class="intro-grid">
+      <div>
+        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">سوق الذكاء الاصطناعي في التعليم بلغ <span class="num">6.9</span> مليار دولار في <span class="num">2025</span>، ومتوقّع أن يتجاوز <span class="num">100</span> مليار بحلول منتصف الثلاثينيات، بمعدل نمو سنوي يتراوح بين <span class="num">25</span>-<span class="num">40</span>٪. هذا النمو ليس مجرد رقم — هو انعكاس لتحوّل حقيقي في طريقة تفاعل الطلاب مع المعرفة.</p>
+
+        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">ثلاثة عوامل تجعل التعليم بيئة مثالية للذكاء الاصطناعي: أوّلاً، وفرة البيانات — كل نقرة، كل إجابة، كل تردّد يُولّد بيانات قابلة للتحليل. ثانياً، الحاجة للتخصيص — لا طالبان يتعلمان بنفس الطريقة. ثالثاً، ندرة المعلمين المتخصصين — خاصة في الدول النامية.</p>
+
+        <p style="font-size: 17px; line-height: 1.9;">في العام الدراسي <span class="num">2024</span>-<span class="num">2025</span>، أفاد <span class="num">86</span>٪ من الطلاب و<span class="num">85</span>٪ من المعلمين باستخدام أدوات الذكاء الاصطناعي. المعلمون الذين يستخدمون هذه الأدوات بفعالية يوفّرون <span class="num">5.9</span> ساعة أسبوعياً من المهام الإدارية والتحضيرية.</p>
+      </div>
+
+      <div>
+        <blockquote class="pull-quote">
+          التعليم كان دائماً يعاني من مفارقة: كل طالب فريد، لكن المعلم واحد. الذكاء الاصطناعي لا يحلّ هذه المفارقة بالكامل، لكنه أقرب محاولة جدّية لتقديم تعليم مُخصّص على نطاق واسع.
+          <cite>— من الخاتمة الشخصية للتقرير</cite>
+        </blockquote>
+      </div>
+    </div>
+
+    <!-- Predictive vs Generative comparison -->
+    <div class="comparison-wrap">
+      <h3 style="font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 32px; text-align: center;">
+        <span class="en">Predictive AI</span> مقابل <span class="en">Generative AI</span> في التعليم
+      </h3>
+      <div class="comparison-grid">
+        <div class="comparison-col predictive">
+          <span class="col-badge">Predictive AI</span>
+          <h4>التنبّؤ والتصنيف</h4>
+          <p>نماذج تتعلّم من بيانات الطلاب السابقة للتنبؤ بسلوكهم المستقبلي — هل سيتعثّر الطالب؟ ما المفهوم التالي الأنسب؟ متى يحتاج تدخلاً؟</p>
+          <ul>
+            <li>توقع تعثّر الطالب قبل حدوثه (<span class="en">Dropout Prediction</span>)</li>
+            <li>تتبع المعرفة (<span class="en">Knowledge Tracing</span>) بنماذج <span class="en">LSTM/Transformer</span></li>
+            <li>ترتيب المحتوى الأمثل (<span class="en">Spaced Repetition</span>)</li>
+            <li>التصحيح الآلي للمقالات (<span class="en">AES</span>) بدقة <span class="num">0.94</span> <span class="en">QWK</span></li>
+          </ul>
+        </div>
+        <div class="comparison-col generative">
+          <span class="col-badge">Generative AI</span>
+          <h4>التوليد والتفاعل</h4>
+          <p>نماذج تُنتج محتوى جديداً — شروحات مخصّصة، محادثات تعليمية، أسئلة متدرّجة، وتغذية راجعة فورية بلغة طبيعية.</p>
+          <ul>
+            <li>معلّم شخصي بأسلوب سقراطي (<span class="en">Khanmigo / GPT-4</span>)</li>
+            <li>محادثات لغوية تفاعلية (<span class="en">Duolingo Max / Roleplay</span>)</li>
+            <li>توليد أسئلة ومحتوى تعليمي متدرّج الصعوبة</li>
+            <li>تلخيص الأوراق العلمية وشرح المفاهيم المعقّدة</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODELS ============ -->
+<section id="models" style="background: var(--paper-warm); margin: 0 -32px; padding: 100px 32px;">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">2</span><span>نماذج التعلم العميق</span></div>
+    <h2 class="section-title">ثلاث عائلات من النماذج<br>تُحرّك التعليم الذكي</h2>
+    <p class="section-intro">كل عائلة تحلّ نوعاً مختلفاً من المسائل التعليمية: فهم اللغة والتفاعل، تتبّع تقدّم الطالب عبر الزمن، وتحليل المحتوى البصري والنصي.</p>
+
+    <div class="models-grid">
+      <article class="model-card" id="model-llm">
+        <div class="model-num en">Model · 01</div>
+        <h3 class="model-name">Transformers & LLMs</h3>
+        <div class="model-name-ar">المحوّلات ونماذج اللغة الكبيرة</div>
+        <span class="model-tag">Generative AI</span>
+        <p class="model-desc">العمود الفقري للمعلمين الأذكياء. تفهم السياق، تُولّد شروحات مخصّصة، وتتفاعل بأسلوب سقراطي — تسأل بدل أن تُجيب مباشرة. نماذج مثل <span class="en">GPT-4</span> تُشغّل <span class="en">Khanmigo</span> و<span class="en">Duolingo Max</span>.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Khanmigo</span> يستخدم <span class="en">GPT-4</span> لتوجيه <span class="num">700,000</span> طالب بأسلوب تكيّفي — يسأل "ما الذي جرّبته حتى الآن؟" بدلاً من إعطاء الإجابة.</div>
+      </article>
+
+      <article class="model-card" id="model-kt">
+        <div class="model-num en">Model · 02</div>
+        <h3 class="model-name">DKT & LSTM</h3>
+        <div class="model-name-ar">تتبّع المعرفة العميق</div>
+        <span class="model-tag">Predictive AI</span>
+        <p class="model-desc">نماذج تسلسلية تتعقّب مستوى الطالب عبر الزمن. تُحلّل سلسلة إجاباته لتحديد ما يعرفه وما لا يعرفه بدقة على مستوى <span class="term" tabindex="0">نقاط المعرفة النانوية<span class="term-tip">تقسيم المادة إلى آلاف النقاط الدقيقة بدلاً من فصول كبيرة — <em class="en">Nano-level Knowledge Points</em></span></span>.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Squirrel AI</span> تُقسّم الرياضيات إلى أكثر من <span class="num">30,000</span> نقطة معرفية، وتُشخّص الفجوات بدقة ترفع نسبة الإجابات الصحيحة من <span class="num">78</span>٪ إلى <span class="num">93</span>٪.</div>
+      </article>
+
+      <article class="model-card" id="model-nlp">
+        <div class="model-num en">Model · 03</div>
+        <h3 class="model-name">BERT & RoBERTa</h3>
+        <div class="model-name-ar">نماذج فهم النصوص</div>
+        <span class="model-tag">Predictive + Generative</span>
+        <p class="model-desc">نماذج مُدرّبة مسبقاً على فهم النصوص. تُستخدم في التصحيح الآلي للمقالات (<span class="en">AES</span>)، كشف السرقة الأدبية، وتحليل جودة الكتابة — بدقة تُنافس المُقيّمين البشريين.</p>
+        <div class="model-eg"><strong>تطبيق:</strong> نموذج هجين يجمع <span class="en">RoBERTa</span> مع <span class="en">XGBoost</span> حقّق <span class="num">0.941</span> <span class="en">QWK</span> في تقييم المقالات — يعني توافقاً شبه تام مع تقييم المعلمين البشريين.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANIES ============ -->
+<section id="companies" class="companies">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">3</span><span>الشركات الرائدة</span></div>
+    <h2 class="section-title">من يبني التعليم الذكي<br>في العالم اليوم</h2>
+    <p class="section-intro">ثلاث شركات تُمثّل ثلاث مقاربات مختلفة: معلّم سقراطي مبني على <span class="en">LLM</span>، محرّك تكيّفي لتعلّم اللغات، ومنصة تعلّم تكيّفي صينية أثبتت تفوّقها على التعليم التقليدي.</p>
+
+    <div class="company-row">
+      <div class="company-rank num">01</div>
+      <div>
+        <div class="company-name">Khan Academy</div>
+        <div class="company-origin">USA · <span class="num">2006</span> · Khanmigo <span class="num">2023</span></div>
+      </div>
+      <p class="company-desc">أطلقت <strong>Khanmigo</strong> في <span class="num">2023</span> بالشراكة مع <span class="en">OpenAI</span> (<span class="en">GPT-4</span>). نمت قاعدة المستخدمين من <span class="num">40,000</span> إلى <span class="num">700,000</span> طالب خلال العام الدراسي <span class="num">2024</span>-<span class="num">2025</span>. يعمل كمعلّم سقراطي يُوجّه بالأسئلة بدلاً من الإجابات المباشرة، ومساعد للمعلمين في تحضير الدروس.</p>
+      <div class="company-stat">
+        <div class="company-stat-num num">20-30٪</div>
+        <div class="company-stat-label">تحسّن في التعلّم مع <span class="num">18+</span> ساعة استخدام</div>
+      </div>
+    </div>
+
+    <div class="company-row">
+      <div class="company-rank num">02</div>
+      <div>
+        <div class="company-name">Duolingo</div>
+        <div class="company-origin">USA · <span class="num">2011</span> · Max <span class="num">2023</span></div>
+      </div>
+      <p class="company-desc">تجمع بين محرّكين: <strong>Birdbrain</strong> (محرك تكيّفي مملوك يتتبّع أداء كل متعلّم ويُحسّن التكرار المتباعد) و<span class="en">GPT-4</span> لميزات <span class="en">Duolingo Max</span> — المحادثات التفاعلية (<span class="en">Roleplay</span>) وشرح الأخطاء (<span class="en">Explain My Answer</span>). في <span class="num">2024</span>-<span class="num">2025</span> تبنّت استراتيجية <strong>"AI-first"</strong> لتوسيع المحتوى بسرعة غير مسبوقة.</p>
+      <div class="company-stat">
+        <div class="company-stat-num en">AI-first</div>
+        <div class="company-stat-label">استراتيجية توسيع المحتوى بالذكاء التوليدي</div>
+      </div>
+    </div>
+
+    <div class="company-row">
+      <div class="company-rank num">03</div>
+      <div>
+        <div class="company-name">Squirrel AI</div>
+        <div class="company-origin">China · <span class="num">2014</span></div>
+      </div>
+      <p class="company-desc">أكبر منصة تعلّم تكيّفي في العالم. أطلقت <strong>Large Adaptive Model (LAM)</strong> في يناير <span class="num">2024</span>، مُدرّب على بيانات <span class="num">24</span> مليون طالب و<span class="num">10</span> مليار سلوك تعلّمي. في ديسمبر <span class="num">2025</span>، سجّلت رقماً قياسياً في <span class="en">Guinness</span>: طلاب الذكاء الاصطناعي (متوسط <span class="num">87.58</span>) تفوّقوا على طلاب التعليم التقليدي (<span class="num">78.80</span>) في تجربة شملت <span class="num">1,662</span> طالباً.</p>
+      <div class="company-stat">
+        <div class="company-stat-num num">43M</div>
+        <div class="company-stat-label">مستخدم · <span class="num">3,000</span> مركز تعلّم</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">4</span><span>الخط الزمني</span></div>
+    <h2 class="section-title">تطور المجال<br>من <span class="num">2011</span> إلى <span class="num">2030</span></h2>
+    <p class="section-intro">التعليم الذكي تطوّر عالمياً بالتوازي مع التحوّل الرقمي في المملكة. اضغط على الأزرار لاستعراض كلا المسارَين أو أحدهما.</p>
+
+    <div class="timeline-wrap">
+      <div class="tl-toggle" role="tablist">
+        <button class="tl-btn active" data-filter="all">الكل</button>
+        <button class="tl-btn" data-filter="global">عالمي</button>
+        <button class="tl-btn" data-filter="saudi">سعودي</button>
+      </div>
+
+      <div class="timeline" id="timeline">
+
+        <div class="tl-item right" data-track="global">
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>Duolingo founded</h4>
+            <p>تأسيس <span class="en">Duolingo</span> كمنصة مجانية لتعلّم اللغات — بداية ثورة التعلّم التكيّفي القائم على البيانات والتكرار المتباعد الذكي.</p>
+            <div class="tl-model en">Model: ML / Spaced Repetition</div>
+          </div>
+          <div class="tl-year global num">2011</div>
+        </div>
+
+        <div class="tl-item left" data-track="global">
+          <div class="tl-year global num">2014</div>
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>Squirrel AI founded</h4>
+            <p>تأسيس <span class="en">Squirrel AI</span> في شنغهاي — أول منصة تعلّم تكيّفي في الصين تستخدم التعلم العميق لتخصيص مسارات التعلّم على مستوى نقاط المعرفة النانوية.</p>
+            <div class="tl-model en">Model: DKT / Knowledge Tracing</div>
+          </div>
+        </div>
+
+        <div class="tl-item right" data-track="global">
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>Deep Knowledge Tracing</h4>
+            <p>نشر ورقة <span class="en">DKT</span> المرجعية من <span class="en">Stanford</span> — أثبتت أن الشبكات العصبية التكرارية (<span class="en">RNN</span>) تتفوق على النماذج التقليدية في تتبّع معرفة الطلاب.</p>
+            <div class="tl-model en">Model: LSTM / RNN</div>
+          </div>
+          <div class="tl-year global num">2015</div>
+        </div>
+
+        <div class="tl-item left" data-track="saudi">
+          <div class="tl-year saudi num">2020</div>
+          <div class="tl-card">
+            <span class="tl-card-flag saudi">Saudi</span>
+            <h4>منصة مدرستي</h4>
+            <p>إطلاق منصة <span class="en">Madrasati</span> للتعلم الافتراضي خلال جائحة كورونا — اعتُرف بها عالمياً كنموذج ناجح للتعليم عن بُعد، وأسّست البنية التحتية الرقمية للتعليم السعودي.</p>
+            <div class="tl-model">بنية تحتية رقمية</div>
+          </div>
+        </div>
+
+        <div class="tl-item right" data-track="global">
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>ChatGPT launches</h4>
+            <p>إطلاق <span class="en">ChatGPT</span> من <span class="en">OpenAI</span> — نقطة تحوّل تاريخية غيّرت نظرة العالم للذكاء الاصطناعي في التعليم. أثار نقاشاً عالمياً: هل هو تهديد للتعليم أم فرصة؟</p>
+            <div class="tl-model en">Model: GPT-3.5 / Transformer</div>
+          </div>
+          <div class="tl-year global num">2022</div>
+        </div>
+
+        <div class="tl-item left" data-track="global">
+          <div class="tl-year global num">2023</div>
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>Khanmigo & Duolingo Max</h4>
+            <p>إطلاق <span class="en">Khanmigo</span> (معلّم سقراطي بـ <span class="en">GPT-4</span>) و<span class="en">Duolingo Max</span> (محادثات تفاعلية ولغوية) — بداية حقبة المعلّم الذكي التوليدي.</p>
+            <div class="tl-model en">Model: GPT-4 / LLM</div>
+          </div>
+        </div>
+
+        <div class="tl-item right" data-track="global">
+          <div class="tl-card">
+            <span class="tl-card-flag global">Global</span>
+            <h4>Squirrel AI LAM</h4>
+            <p>إطلاق <span class="en">Large Adaptive Model</span> المُدرّب على بيانات <span class="num">24</span> مليون طالب — رفع دقة الإجابات من <span class="num">78</span>٪ إلى <span class="num">93</span>٪ ومنح الشركة لقب <span class="en">TIME100</span> الأكثر تأثيراً.</p>
+            <div class="tl-model en">Model: LAM / Multi-agent</div>
+          </div>
+          <div class="tl-year global num">2024</div>
+        </div>
+
+        <div class="tl-item left" data-track="saudi">
+          <div class="tl-year saudi num">2025</div>
+          <div class="tl-card">
+            <span class="tl-card-flag saudi">Saudi</span>
+            <h4>منهج الذكاء الاصطناعي الوطني</h4>
+            <p>المملكة تُدخل منهج ذكاء اصطناعي متخصّص في جميع مراحل التعليم العام بالتعاون بين وزارة التعليم و<span class="en">SDAIA</span> — يغطي التفكير الخوارزمي وتعلم الآلة وأخلاقيات الذكاء الاصطناعي.</p>
+            <div class="tl-model">مبادرة وطنية</div>
+          </div>
+        </div>
+
+        <div class="tl-item right" data-track="saudi">
+          <div class="tl-card">
+            <span class="tl-card-flag saudi">Saudi</span>
+            <h4>مبادرة سمائي</h4>
+            <p>تدريب أكثر من مليون مواطن على الذكاء الاصطناعي عبر مبادرة <span class="en">Samai</span> — شهادات معتمدة ونشر ثقافة الذكاء الاصطناعي بين الطلاب والمعلمين والمجتمع.</p>
+            <div class="tl-model">بناء القدرات</div>
+          </div>
+          <div class="tl-year saudi num">2025</div>
+        </div>
+
+        <div class="tl-item left" data-track="saudi">
+          <div class="tl-year future num">2030</div>
+          <div class="tl-card" style="border: 2px dashed var(--accent); background: rgba(37, 99, 235, 0.03);">
+            <span class="tl-card-flag saudi">Saudi · Target</span>
+            <h4>رؤية 2030 — التعليم</h4>
+            <p>تحقيق تحوّل رقمي شامل في التعليم: معلّم ذكي مساعد في كل فصل، منصات تعلّم تكيّفي وطنية، وبنية بيانات موحّدة تربط <span class="en">Madrasati</span> و<span class="en">iEN</span> و<span class="en">Noor</span> بنماذج ذكاء اصطناعي محلية.</p>
+            <div class="tl-model" style="color: var(--accent);">تحوّل شامل</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CHALLENGES ============ -->
+<section id="challenges">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">5</span><span>التحديات</span></div>
+    <h2 class="section-title">ما لا يقوله الإعلام<br>عن المعلّم الذكي</h2>
+    <p class="section-intro">وسائل الإعلام تُصوّر الذكاء الاصطناعي كمعلّم مثالي لا يُخطئ. الأوراق العلمية والتجارب الميدانية تكشف صورة أكثر تعقيداً وأكثر أهمية.</p>
+
+    <div class="challenges-grid">
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 01</div>
+        <h4>الهلوسة وعدم الدقة</h4>
+        <p>نماذج اللغة الكبيرة تختلق أحياناً معلومات تبدو مقنعة لكنها خاطئة — وهذا أخطر في التعليم منه في أي مجال آخر. طالب يتلقّى شرحاً رياضياً خاطئاً من معلّمه الذكي قد يبني عليه فهماً مغلوطاً يصعب تصحيحه. <span class="en">Khan Academy</span> تُعالج هذا بقياس "هل يحلّ الطالب المسألة التالية بشكل صحيح؟" (<span class="en">next-item correctness</span>).</p>
+      </div>
+
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 02</div>
+        <h4>خصوصية بيانات الطلاب</h4>
+        <p>لكي يعمل التعلم التكيّفي بفعالية، يحتاج إلى بيانات تفصيلية عن كل طالب: إجاباته، أخطاؤه، سرعته، أنماط تفكيره. هذا يثير تساؤلات جوهرية عن خصوصية الأطفال والقُصّر. تشريعات مثل <span class="en">COPPA</span> و<span class="en">FERPA</span> في أمريكا و<span class="en">GDPR</span> في أوروبا تضع قيوداً صارمة — لكن التطبيق الفعلي يتأخر عن سرعة التطور التقني.</p>
+      </div>
+
+      <div class="challenge">
+        <div class="ch-num en">Challenge · 03</div>
+        <h4>التحيّز والفجوة الرقمية</h4>
+        <p>النماذج تُدرَّب غالباً على بيانات إنجليزية من بيئات غربية — وهذا يعني أداءً أضعف مع الطلاب العرب، وتحيّزاً ثقافياً في الأمثلة والسياقات. أضف إلى ذلك أن <span class="num">15</span>٪ فقط من الطلاب الذين يملكون صلاحية الوصول إلى <span class="en">Khanmigo</span> يستخدمونه فعلاً — مما يُعمّق الفجوة بين من يملك الوصول ومن لا يملكه.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUTURE ============ -->
+<section id="future" class="future-section">
+  <div class="container">
+    <div class="section-eyebrow"><span class="ch num">6</span><span>المستقبل</span></div>
+    <h2 class="section-title">ثلاثة تحوّلات قادمة<br>في خمس سنوات</h2>
+    <p class="section-intro">بحلول <span class="num">2030</span>، سيتغيّر دور المعلم جذرياً — من ناقل للمعرفة إلى مُوجّه ومُحفّز. الذكاء الاصطناعي لن يحلّ محل المعلم، لكنه سيُغيّر تعريف التعليم نفسه.</p>
+
+    <div class="future-grid">
+      <div class="future-item">
+        <h4>المعلّم المُعزَّز</h4>
+        <p>المعلم البشري سيعمل جنباً إلى جنب مع مساعد ذكي يتولّى المهام الروتينية (التصحيح، التحضير، متابعة التقدّم)، بينما يتفرّغ المعلم للإرشاد والتحفيز والتفاعل الإنساني — الشيء الذي لا يستطيع الذكاء الاصطناعي تقديمه.</p>
+      </div>
+
+      <div class="future-item">
+        <h4>التعلّم مدى الحياة</h4>
+        <p>مع تسارع تقادم المهارات، ستصبح منصات التعلّم التكيّفي ضرورة مهنية وليست ترفاً تعليمياً. نماذج <span class="en">LLM</span> المُخصّصة ستُصمّم مسارات تعلّم شخصية مرتبطة بسوق العمل — تتعلّم ما تحتاجه، وقت ما تحتاجه.</p>
+      </div>
+
+      <div class="future-item">
+        <h4>المملكة كمختبر إقليمي</h4>
+        <p>مع منهج وطني للذكاء الاصطناعي، ومنصات مثل <span class="en">Madrasati</span> و<span class="en">iEN</span>، ومبادرة <span class="en">Samai</span> (مليون مُتدرّب)، تتحول المملكة لمختبر إقليمي. الفرصة الحقيقية: بناء نماذج تعليمية ذكية بالعربية — مجال شبه خالٍ من المنافسة العالمية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-about">
+      <h5>About this page</h5>
+      <p>صفحة بحثية لمشروع طلابي في مقرر <span class="en">Advanced Deep Learning (AI4203)</span>. تستعرض تطبيقات الذكاء الاصطناعي في قطاع التعليم مع التركيز على نماذج اللغة الكبيرة كمعلمين أذكياء تكيّفيين. كل الإحصاءات والشركات المذكورة موثّقة من مصادر علمية وصناعية حقيقية.</p>
+    </div>
+
+    <div class="footer-col">
+      <h5>Sources</h5>
+      <ul>
+        <li>Grand View Research 2025</li>
+        <li>Khan Academy Blog 2025</li>
+        <li>Duolingo Research 2024</li>
+        <li>Squirrel AI — TIME100 2026</li>
+        <li>MDPI — Hybrid AES 2024</li>
+        <li>ACL Anthology — AES 2024</li>
+        <li>Saudi MoE — SDAIA 2025</li>
+        <li>UNESCO AI & Education</li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h5>Companies cited</h5>
+      <ul>
+        <li><a href="https://khanacademy.org" target="_blank" rel="noopener">Khan Academy — khanacademy.org</a></li>
+        <li><a href="https://duolingo.com" target="_blank" rel="noopener">Duolingo — duolingo.com</a></li>
+        <li><a href="https://squirrelai.com" target="_blank" rel="noopener">Squirrel AI — squirrelai.com</a></li>
+        <li><a href="https://ien.edu.sa" target="_blank" rel="noopener">iEN — ien.edu.sa</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>سلطان · <span class="en">Advanced Deep Learning · 1447 AH</span></span>
+    <span class="en">Built with AI Tools · Hosted on GitHub Pages</span>
+  </div>
+</footer>
+
+<script>
+  // Timeline filter
+  const buttons = document.querySelectorAll('.tl-btn');
+  const items = document.querySelectorAll('.tl-item');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      items.forEach(item => {
+        if (filter === 'all' || item.dataset.track === filter) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Smooth scroll for nav links
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        const offset = target.offsetTop - 80;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Intersection Observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.model-card, .company-row, .challenge, .future-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
