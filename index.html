@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>الذكاء الاصطناعي في التعليم | مشروع بحثي</title>
-<meta name="description" content="كيف يُغيّر الذكاء الاصطناعي والتعلم العميق قطاع التعليم — من المعلمين الأذكياء إلى تخصيص المسارات وتقييم الإجابات المفتوحة">
+<title>الذكاء الاصطناعي في التعليم — نماذج اللغة الكبيرة كمعلمين أذكياء | AI4203</title>
+<meta name="description" content="بحث أكاديمي في مقرر Advanced Deep Learning (AI4203): كيف يُغيّر الذكاء الاصطناعي والتعلم العميق قطاع التعليم — من Khanmigo إلى Squirrel AI. يشمل مقارنة Predictive vs Generative AI، نماذج Transformer وLSTM وBERT، وتحليل نقدي للتحديات.">
+<meta name="keywords" content="AI in Education, Deep Learning, LLMs, Khanmigo, Squirrel AI, Duolingo, التعليم الذكي, رؤية 2030">
+<meta name="author" content="سلطان">
+<meta property="og:title" content="الذكاء الاصطناعي في التعليم — مشروع بحثي">
+<meta property="og:description" content="كيف تُوظّف المنصات التعليمية نماذج اللغة الكبيرة والتعلم العميق لبناء معلّمين أذكياء تكيّفيين">
+<meta property="og:type" content="article">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -928,6 +933,46 @@
     color: var(--ink-deep);
   }
 
+  .challenge-solution {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: rgba(37, 99, 235, 0.04);
+    border-right: 3px solid var(--accent);
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+
+  .cite {
+    font-size: 0.82em;
+    color: var(--accent-deep);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: 4px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  .model-tech {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: rgba(37, 99, 235, 0.04);
+    border-radius: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .section-figure {
+    margin: 40px 0;
+  }
+
   /* ============ FOOTER ============ */
   footer {
     background: var(--ink-deep);
@@ -1048,21 +1093,25 @@
   </div>
 
   <div class="hero-bottom container" style="padding: 0;">
-    <div class="stat">
+    <div class="stat" role="figure" aria-label="700 ألف طالب يستخدمون Khanmigo">
       <div class="stat-num"><span class="num">700K</span><span class="unit">طالب</span></div>
       <div class="stat-label">يستخدمون <span class="en">Khanmigo</span> في <span class="num">2025</span></div>
+      <div class="stat-source">Khan Academy Blog, 2025</div>
     </div>
-    <div class="stat">
+    <div class="stat" role="figure" aria-label="0.94 دقة التصحيح الآلي">
       <div class="stat-num"><span class="num">0.94</span><span class="unit">QWK</span></div>
       <div class="stat-label">دقة تصحيح المقالات تلقائياً بنماذج <span class="en">Transformer</span></div>
+      <div class="stat-source">MDPI Journal, 2024</div>
     </div>
-    <div class="stat">
+    <div class="stat" role="figure" aria-label="86% من الطلاب يستخدمون AI">
       <div class="stat-num"><span class="num">86</span><span class="unit">٪</span></div>
       <div class="stat-label">من الطلاب يستخدمون أدوات AI في <span class="num">2025</span></div>
+      <div class="stat-source">Engageli Survey, 2025</div>
     </div>
-    <div class="stat">
+    <div class="stat" role="figure" aria-label="43 مليون مستخدم على Squirrel AI">
       <div class="stat-num"><span class="num">43M</span><span class="unit">مستخدم</span></div>
       <div class="stat-label">على منصة <span class="en">Squirrel AI</span> الصينية</div>
+      <div class="stat-source">Squirrel AI Official, 2024</div>
     </div>
   </div>
 </header>
@@ -1091,11 +1140,11 @@
 
     <div class="intro-grid">
       <div>
-        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">سوق الذكاء الاصطناعي في التعليم بلغ <span class="num">6.9</span> مليار دولار في <span class="num">2025</span>، ومتوقّع أن يتجاوز <span class="num">100</span> مليار بحلول منتصف الثلاثينيات، بمعدل نمو سنوي يتراوح بين <span class="num">25</span>-<span class="num">40</span>٪. هذا النمو ليس مجرد رقم — هو انعكاس لتحوّل حقيقي في طريقة تفاعل الطلاب مع المعرفة.</p>
+        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">سوق الذكاء الاصطناعي في التعليم بلغ <span class="num">6.9</span> مليار دولار في <span class="num">2025</span>، ومتوقّع أن يتجاوز <span class="num">100</span> مليار بحلول منتصف الثلاثينيات، بمعدل نمو سنوي يتراوح بين <span class="num">25</span>-<span class="num">40</span>٪ <span class="cite">(Grand View Research, 2025)</span>. هذا النمو ليس مجرد رقم — هو انعكاس لتحوّل حقيقي في طريقة تفاعل الطلاب مع المعرفة.</p>
 
-        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">ثلاثة عوامل تجعل التعليم بيئة مثالية للذكاء الاصطناعي: أوّلاً، وفرة البيانات — كل نقرة، كل إجابة، كل تردّد يُولّد بيانات قابلة للتحليل. ثانياً، الحاجة للتخصيص — لا طالبان يتعلمان بنفس الطريقة. ثالثاً، ندرة المعلمين المتخصصين — خاصة في الدول النامية.</p>
+        <p style="font-size: 17px; line-height: 1.9; margin-bottom: 20px;">ثلاثة عوامل تجعل التعليم بيئة مثالية للذكاء الاصطناعي: أوّلاً، <strong>وفرة البيانات</strong> — كل نقرة، كل إجابة، كل تردّد يُولّد بيانات قابلة للتحليل. ثانياً، <strong>الحاجة للتخصيص</strong> — لا طالبان يتعلمان بنفس الطريقة. ثالثاً، <strong>ندرة المعلمين</strong> — تقدّر اليونسكو أن العالم يحتاج 44 مليون معلم إضافي بحلول 2030 <span class="cite">(UNESCO, 2023)</span>.</p>
 
-        <p style="font-size: 17px; line-height: 1.9;">في العام الدراسي <span class="num">2024</span>-<span class="num">2025</span>، أفاد <span class="num">86</span>٪ من الطلاب و<span class="num">85</span>٪ من المعلمين باستخدام أدوات الذكاء الاصطناعي. المعلمون الذين يستخدمون هذه الأدوات بفعالية يوفّرون <span class="num">5.9</span> ساعة أسبوعياً من المهام الإدارية والتحضيرية.</p>
+        <p style="font-size: 17px; line-height: 1.9;">في العام الدراسي <span class="num">2024</span>-<span class="num">2025</span>، أفاد <span class="num">86</span>٪ من الطلاب و<span class="num">85</span>٪ من المعلمين باستخدام أدوات الذكاء الاصطناعي <span class="cite">(Engageli, 2025)</span>. المعلمون الذين يستخدمون هذه الأدوات بفعالية يوفّرون <span class="num">5.9</span> ساعة أسبوعياً من المهام الإدارية والتحضيرية.</p>
       </div>
 
       <div>
@@ -1107,6 +1156,10 @@
     </div>
 
     <!-- Predictive vs Generative comparison -->
+    <figure class="section-figure" role="img" aria-label="مقارنة بصرية بين Predictive AI و Generative AI">
+      <img src="img_comparison.png" alt="رسم بياني يوضح الفرق بين الذكاء الاصطناعي التنبؤي (تتبع المعرفة، التصحيح الآلي) والذكاء الاصطناعي التوليدي (المعلم الذكي، المحادثات التفاعلية)" loading="lazy" style="width:100%; max-width:800px; margin:0 auto 16px; display:block; border-radius:12px; box-shadow: 0 4px 24px rgba(0,0,0,0.1);">
+      <figcaption style="text-align:center; font-size:13px; color:var(--muted); margin-bottom:32px;">شكل ٢: مقارنة بصرية بين الذكاء الاصطناعي التنبؤي والتوليدي في التعليم</figcaption>
+    </figure>
     <div class="comparison-wrap">
       <h3 style="font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 32px; text-align: center;">
         <span class="en">Predictive AI</span> مقابل <span class="en">Generative AI</span> في التعليم
@@ -1146,32 +1199,41 @@
     <h2 class="section-title">ثلاث عائلات من النماذج<br>تُحرّك التعليم الذكي</h2>
     <p class="section-intro">كل عائلة تحلّ نوعاً مختلفاً من المسائل التعليمية: فهم اللغة والتفاعل، تتبّع تقدّم الطالب عبر الزمن، وتحليل المحتوى البصري والنصي.</p>
 
+    <!-- Diagram: Transformer Architecture -->
+    <figure class="section-figure" role="img" aria-label="رسم توضيحي لمعمارية المحوّلات">
+      <img src="img_transformer.png" alt="رسم توضيحي مبسّط لمعمارية Transformer: المدخل يمر بطبقات Self-Attention ثم Feed Forward لإنتاج استجابة مخصصة" loading="lazy" style="width:100%; max-width:800px; margin:0 auto 16px; display:block; border-radius:12px; box-shadow: 0 4px 24px rgba(0,0,0,0.1);">
+      <figcaption style="text-align:center; font-size:13px; color:var(--muted); margin-bottom:48px;">شكل ١: معمارية <span class="en">Transformer</span> المبسّطة — آلية الانتباه الذاتي تحسب أهمية كل كلمة بالنسبة لباقي الكلمات عبر: <code style="font-size:12px; background:var(--paper); padding:2px 6px; border-radius:3px;">Attention(Q,K,V) = softmax(QKᵀ/√dₖ) × V</code></figcaption>
+    </figure>
+
     <div class="models-grid">
-      <article class="model-card" id="model-llm">
+      <article class="model-card" id="model-llm" role="article" aria-labelledby="model-llm-title">
         <div class="model-num en">Model · 01</div>
-        <h3 class="model-name">Transformers & LLMs</h3>
+        <h3 class="model-name" id="model-llm-title">Transformers & LLMs</h3>
         <div class="model-name-ar">المحوّلات ونماذج اللغة الكبيرة</div>
         <span class="model-tag">Generative AI</span>
-        <p class="model-desc">العمود الفقري للمعلمين الأذكياء. تفهم السياق، تُولّد شروحات مخصّصة، وتتفاعل بأسلوب سقراطي — تسأل بدل أن تُجيب مباشرة. نماذج مثل <span class="en">GPT-4</span> تُشغّل <span class="en">Khanmigo</span> و<span class="en">Duolingo Max</span>.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Khanmigo</span> يستخدم <span class="en">GPT-4</span> لتوجيه <span class="num">700,000</span> طالب بأسلوب تكيّفي — يسأل "ما الذي جرّبته حتى الآن؟" بدلاً من إعطاء الإجابة.</div>
+        <p class="model-desc">العمود الفقري للمعلمين الأذكياء. تعتمد على آلية <strong>الانتباه الذاتي</strong> (<span class="en">Self-Attention</span>) لفهم السياق الكامل للنص. نماذج <span class="en">GPT-4</span> (تريليونات المعاملات) تُشغّل <span class="en">Khanmigo</span> و<span class="en">Duolingo Max</span> — تفهم سؤال الطالب وتُولّد استجابة مخصّصة بأسلوب سقراطي.</p>
+        <div class="model-tech"><strong>المعمارية:</strong> مُشفّر-فاكّ شفرة (<span class="en">Encoder-Decoder</span>) بطبقات انتباه متعددة الرؤوس (<span class="en">Multi-Head Attention</span>). كل طبقة تحسب أهمية كل كلمة بالنسبة لكل الكلمات الأخرى.</div>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Khanmigo</span> يستخدم <span class="en">GPT-4</span> لتوجيه <span class="num">700,000</span> طالب — يسأل "ما الذي جرّبته؟" بدلاً من إعطاء الإجابة <span class="cite">(Khan Academy, 2025)</span>.</div>
       </article>
 
-      <article class="model-card" id="model-kt">
+      <article class="model-card" id="model-kt" role="article" aria-labelledby="model-kt-title">
         <div class="model-num en">Model · 02</div>
-        <h3 class="model-name">DKT & LSTM</h3>
+        <h3 class="model-name" id="model-kt-title">DKT & LSTM</h3>
         <div class="model-name-ar">تتبّع المعرفة العميق</div>
         <span class="model-tag">Predictive AI</span>
-        <p class="model-desc">نماذج تسلسلية تتعقّب مستوى الطالب عبر الزمن. تُحلّل سلسلة إجاباته لتحديد ما يعرفه وما لا يعرفه بدقة على مستوى <span class="term" tabindex="0">نقاط المعرفة النانوية<span class="term-tip">تقسيم المادة إلى آلاف النقاط الدقيقة بدلاً من فصول كبيرة — <em class="en">Nano-level Knowledge Points</em></span></span>.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Squirrel AI</span> تُقسّم الرياضيات إلى أكثر من <span class="num">30,000</span> نقطة معرفية، وتُشخّص الفجوات بدقة ترفع نسبة الإجابات الصحيحة من <span class="num">78</span>٪ إلى <span class="num">93</span>٪.</div>
+        <p class="model-desc">نُشر من <span class="en">Stanford</span> في <span class="en">NeurIPS 2015</span> <span class="cite">(Piech et al.)</span>. يستخدم شبكات <span class="en">LSTM</span> لنمذجة معرفة الطالب كمتتالية زمنية — المدخل: سلسلة (سؤال، إجابة)، المخرج: احتمال الإجابة الصحيحة التالية.</p>
+        <div class="model-tech"><strong>المعمارية:</strong> ثلاث بوابات (<span class="en">Forget, Input, Output</span>) تسمح بتذكّر المعرفة طويلة المدى ونسيان المعلومات غير المفيدة — تماماً كالدماغ البشري.</div>
+        <div class="model-eg"><strong>تطبيق:</strong> <span class="en">Squirrel AI</span> تُقسّم الرياضيات إلى <span class="num">30,000+</span> نقطة نانوية، ونموذج <span class="en">LAM</span> رفع الإجابات الصحيحة من <span class="num">78</span>٪ إلى <span class="num">93</span>٪ <span class="cite">(Squirrel AI, 2024)</span>.</div>
       </article>
 
-      <article class="model-card" id="model-nlp">
+      <article class="model-card" id="model-nlp" role="article" aria-labelledby="model-nlp-title">
         <div class="model-num en">Model · 03</div>
-        <h3 class="model-name">BERT & RoBERTa</h3>
+        <h3 class="model-name" id="model-nlp-title">BERT & RoBERTa</h3>
         <div class="model-name-ar">نماذج فهم النصوص</div>
         <span class="model-tag">Predictive + Generative</span>
-        <p class="model-desc">نماذج مُدرّبة مسبقاً على فهم النصوص. تُستخدم في التصحيح الآلي للمقالات (<span class="en">AES</span>)، كشف السرقة الأدبية، وتحليل جودة الكتابة — بدقة تُنافس المُقيّمين البشريين.</p>
-        <div class="model-eg"><strong>تطبيق:</strong> نموذج هجين يجمع <span class="en">RoBERTa</span> مع <span class="en">XGBoost</span> حقّق <span class="num">0.941</span> <span class="en">QWK</span> في تقييم المقالات — يعني توافقاً شبه تام مع تقييم المعلمين البشريين.</div>
+        <p class="model-desc">نماذج مُدرّبة مسبقاً على فهم النصوص <strong>ثنائي الاتجاه</strong> — تقرأ السياق من الجهتين مما يمنحها فهماً أعمق. تُستخدم في التصحيح الآلي للمقالات (<span class="en">AES</span>) وتحليل جودة الكتابة <span class="cite">(Devlin et al., NAACL 2019)</span>.</p>
+        <div class="model-tech"><strong>المعمارية:</strong> <span class="en">Masked Language Model</span> — يُخفي كلمات عشوائية ويتعلم توقعها من السياق المحيط. <span class="en">RoBERTa</span> يُحسّن التدريب بإزالة <span class="en">Next Sentence Prediction</span>.</div>
+        <div class="model-eg"><strong>تطبيق:</strong> نموذج <span class="en">RoBERTa + XGBoost</span> حقّق <span class="num">0.941</span> <span class="en">QWK</span> — توافق شبه تام مع المقيّمين البشريين <span class="cite">(MDPI, 2024)</span>.</div>
       </article>
     </div>
   </div>
@@ -1190,10 +1252,10 @@
         <div class="company-name">Khan Academy</div>
         <div class="company-origin">USA · <span class="num">2006</span> · Khanmigo <span class="num">2023</span></div>
       </div>
-      <p class="company-desc">أطلقت <strong>Khanmigo</strong> في <span class="num">2023</span> بالشراكة مع <span class="en">OpenAI</span> (<span class="en">GPT-4</span>). نمت قاعدة المستخدمين من <span class="num">40,000</span> إلى <span class="num">700,000</span> طالب خلال العام الدراسي <span class="num">2024</span>-<span class="num">2025</span>. يعمل كمعلّم سقراطي يُوجّه بالأسئلة بدلاً من الإجابات المباشرة، ومساعد للمعلمين في تحضير الدروس.</p>
+      <p class="company-desc">أطلقت <strong>Khanmigo</strong> في <span class="num">2023</span> بالشراكة مع <span class="en">OpenAI</span> (<span class="en">GPT-4</span>). نمت قاعدة المستخدمين من <span class="num">40,000</span> إلى <span class="num">700,000</span> طالب خلال العام الدراسي <span class="num">2024</span>-<span class="num">2025</span> <span class="cite">(Khan Academy Blog, 2025)</span>. يعمل كمعلّم سقراطي يُوجّه بالأسئلة بدلاً من الإجابات المباشرة، ومساعد للمعلمين في تحضير الدروس.</p>
       <div class="company-stat">
         <div class="company-stat-num num">20-30٪</div>
-        <div class="company-stat-label">تحسّن في التعلّم مع <span class="num">18+</span> ساعة استخدام</div>
+        <div class="company-stat-label">تحسّن في التعلّم مع <span class="num">18+</span> ساعة استخدام <span class="cite">(Erudit.org, 2024)</span></div>
       </div>
     </div>
 
@@ -1216,10 +1278,10 @@
         <div class="company-name">Squirrel AI</div>
         <div class="company-origin">China · <span class="num">2014</span></div>
       </div>
-      <p class="company-desc">أكبر منصة تعلّم تكيّفي في العالم. أطلقت <strong>Large Adaptive Model (LAM)</strong> في يناير <span class="num">2024</span>، مُدرّب على بيانات <span class="num">24</span> مليون طالب و<span class="num">10</span> مليار سلوك تعلّمي. في ديسمبر <span class="num">2025</span>، سجّلت رقماً قياسياً في <span class="en">Guinness</span>: طلاب الذكاء الاصطناعي (متوسط <span class="num">87.58</span>) تفوّقوا على طلاب التعليم التقليدي (<span class="num">78.80</span>) في تجربة شملت <span class="num">1,662</span> طالباً.</p>
+      <p class="company-desc">أكبر منصة تعلّم تكيّفي في العالم. أطلقت <strong>Large Adaptive Model (LAM)</strong> في يناير <span class="num">2024</span>، مُدرّب على بيانات <span class="num">24</span> مليون طالب و<span class="num">10</span> مليار سلوك تعلّمي <span class="cite">(Squirrel AI, 2024)</span>. في ديسمبر <span class="num">2025</span>، سجّلت رقماً قياسياً في <span class="en">Guinness</span>: طلاب AI (متوسط <span class="num">87.58</span>) تفوّقوا على طلاب التعليم التقليدي (<span class="num">78.80</span>) في تجربة شملت <span class="num">1,662</span> طالباً <span class="cite">(Guinness World Records, 2025)</span>.</p>
       <div class="company-stat">
         <div class="company-stat-num num">43M</div>
-        <div class="company-stat-label">مستخدم · <span class="num">3,000</span> مركز تعلّم</div>
+        <div class="company-stat-label">مستخدم · <span class="num">3,000</span> مركز تعلّم <span class="cite">(TIME100, 2026)</span></div>
       </div>
     </div>
   </div>
@@ -1354,22 +1416,31 @@
     <p class="section-intro">وسائل الإعلام تُصوّر الذكاء الاصطناعي كمعلّم مثالي لا يُخطئ. الأوراق العلمية والتجارب الميدانية تكشف صورة أكثر تعقيداً وأكثر أهمية.</p>
 
     <div class="challenges-grid">
-      <div class="challenge">
+      <div class="challenge" role="article">
         <div class="ch-num en">Challenge · 01</div>
         <h4>الهلوسة وعدم الدقة</h4>
-        <p>نماذج اللغة الكبيرة تختلق أحياناً معلومات تبدو مقنعة لكنها خاطئة — وهذا أخطر في التعليم منه في أي مجال آخر. طالب يتلقّى شرحاً رياضياً خاطئاً من معلّمه الذكي قد يبني عليه فهماً مغلوطاً يصعب تصحيحه. <span class="en">Khan Academy</span> تُعالج هذا بقياس "هل يحلّ الطالب المسألة التالية بشكل صحيح؟" (<span class="en">next-item correctness</span>).</p>
+        <p>نماذج اللغة الكبيرة تختلق أحياناً معلومات تبدو مقنعة لكنها خاطئة — وهذا أخطر في التعليم منه في أي مجال آخر. طالب يتلقّى شرحاً رياضياً خاطئاً قد يبني عليه فهماً مغلوطاً يصعب تصحيحه.</p>
+        <div class="challenge-solution">
+          <strong>حلول مقترحة:</strong> <span class="en">Khan Academy</span> تقيس <span class="en">next-item correctness</span> (هل يحلّ الطالب المسألة التالية بنجاح؟). تقنية <span class="en">RAG</span> (<span class="en">Retrieval-Augmented Generation</span>) تُقيّد النموذج بمصادر موثوقة بدلاً من الاعتماد على ذاكرته فقط. ومراجعة المعلم البشري تظل ضرورية كطبقة إشراف.
+        </div>
       </div>
 
-      <div class="challenge">
+      <div class="challenge" role="article">
         <div class="ch-num en">Challenge · 02</div>
         <h4>خصوصية بيانات الطلاب</h4>
-        <p>لكي يعمل التعلم التكيّفي بفعالية، يحتاج إلى بيانات تفصيلية عن كل طالب: إجاباته، أخطاؤه، سرعته، أنماط تفكيره. هذا يثير تساؤلات جوهرية عن خصوصية الأطفال والقُصّر. تشريعات مثل <span class="en">COPPA</span> و<span class="en">FERPA</span> في أمريكا و<span class="en">GDPR</span> في أوروبا تضع قيوداً صارمة — لكن التطبيق الفعلي يتأخر عن سرعة التطور التقني.</p>
+        <p>التعلم التكيّفي يحتاج بيانات تفصيلية عن كل طالب: إجاباته، أخطاؤه، سرعته، أنماط تفكيره. <span class="en">Squirrel AI</span> تجمع <span class="num">10</span> مليار سلوك — هذا يطرح أسئلة جوهرية عن خصوصية الأطفال.</p>
+        <div class="challenge-solution">
+          <strong>حلول مقترحة:</strong> تشريعات مثل <span class="en">COPPA</span> و<span class="en">FERPA</span> و<span class="en">GDPR</span> تضع إطاراً قانونياً. تقنياً، يمكن استخدام <span class="en">Federated Learning</span> (التعلم الموحّد) لتدريب النماذج دون نقل البيانات من الجهاز، و<span class="en">Differential Privacy</span> لإضافة ضوضاء تحمي الهوية. في السعودية، إطار <span class="en">NeLC</span> الجديد (2026) يُنظّم هذا المجال.
+        </div>
       </div>
 
-      <div class="challenge">
+      <div class="challenge" role="article">
         <div class="ch-num en">Challenge · 03</div>
         <h4>التحيّز والفجوة الرقمية</h4>
-        <p>النماذج تُدرَّب غالباً على بيانات إنجليزية من بيئات غربية — وهذا يعني أداءً أضعف مع الطلاب العرب، وتحيّزاً ثقافياً في الأمثلة والسياقات. أضف إلى ذلك أن <span class="num">15</span>٪ فقط من الطلاب الذين يملكون صلاحية الوصول إلى <span class="en">Khanmigo</span> يستخدمونه فعلاً — مما يُعمّق الفجوة بين من يملك الوصول ومن لا يملكه.</p>
+        <p>النماذج تُدرَّب على بيانات إنجليزية من بيئات غربية — أداء أضعف مع الطلاب العرب وتحيّز ثقافي في الأمثلة. <span class="num">15</span>٪ فقط ممن يملكون الوصول إلى <span class="en">Khanmigo</span> يستخدمونه فعلاً — مما يُعمّق الفجوة.</p>
+        <div class="challenge-solution">
+          <strong>حلول مقترحة:</strong> بناء نماذج LLM عربية مُدرّبة على بيانات تعليمية من البيئة العربية. اعتماد سياسات <span class="en">AI for All</span> تُتيح الوصول المجاني للفئات المحرومة. <span class="en">Khan Academy</span> بدأت بتوفير <span class="en">Khanmigo</span> مجاناً لبعض المناطق — نموذج يمكن تعميمه. موازنة الابتكار مع الحماية تتطلب حوكمة شفافة وتدقيقاً مستقلاً للنماذج.
+        </div>
       </div>
     </div>
   </div>
@@ -1435,8 +1506,8 @@
   </div>
 
   <div class="footer-bottom">
-    <span>سلطان · <span class="en">Advanced Deep Learning · 1447 AH</span></span>
-    <span class="en">Built with AI Tools · Hosted on GitHub Pages</span>
+    <span>سلطان · <span class="en">Advanced Deep Learning (AI4203) · 1447 AH</span></span>
+    <span class="en">Research Project · Hosted on GitHub Pages</span>
   </div>
 </footer>
 
